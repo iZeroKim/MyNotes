@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 // instead of the whole database, because you only need access to the DAO
 class NoteRepository(private val noteDao: NoteDao) {
     // Observed LiveData will notify the observer when the data has changed.
-    private val allNotes : LiveData<List<Note>> = noteDao.getAllNotes()
+    val allNotes : LiveData<List<Note>> = noteDao.getAllNotes()
 
     suspend fun insert(note: Note){
         noteDao.insert(note)
